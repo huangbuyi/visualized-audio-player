@@ -1,0 +1,542 @@
+body,html{width:100%;height:100%;font-size: 12px;font-family: Arial,Helvetica, sans-serif}
+body{
+    overflow: hidden;
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
+}
+body,html,p,input,ul,li,a{padding:0;margin:0}
+.playBtn,.prevBtn,.nextBtn,.loop,.volume,.local{
+    background: url(../images/playbar.png) no-repeat 0 9999px;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}
+#container{
+    width:100%;
+    height:100%;
+}
+#header{
+    width:100%;
+    height:47px;
+    border-bottom: 3px solid #922222;
+    background: #303035;
+}
+#header .logo{
+    width:50px;
+    height:100%;
+    float:left;
+    color:white;
+    font-size: 11px;
+    white-space:nowrap;
+}
+#header .effectList{
+    position: relative;
+    width:calc(100% - 50px);;
+    height:100%;
+    float:left;
+    //background: white;
+}
+.effectStyle{
+    width:400px;
+    margin:0 auto;
+}
+.effectStyle div{
+    margin:15px 5px;
+    height:20px;
+    background: #9f9f9f;
+    border-radius: 3px;
+    color:#020406;
+    text-align: center;
+    line-height: 20px;
+    float:left;
+    -webkit-box-shadow: 0 -1px 1px black inset;
+}
+.effectStyle div:hover{
+    color:#9f9f9f;
+    background: #923232;
+}
+.effectStyle .checked{
+    color:#bbb;
+    background: #922222;
+}
+.effectStyle .checked:hover{
+    color:#bbb;
+    background: #922222;
+}
+.effectSize{
+    width:250px;
+    margin:0 auto;
+}
+.effectSize div{
+    margin:17px 3px;
+    font-size: 11px;
+    width:28px;
+    height:18px;
+    text-align: center;
+    line-height: 19px;
+    float:left;
+    color:#020406;
+    background: #9f9f9f;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 -1px 1px black inset;
+}
+.effectSize div:hover{
+    color:#9f9f9f;
+    background: #923232;
+}
+.effectSize .checked{
+    color:#bbb;
+    background: #922222;
+}
+.effectSize .checked:hover{
+    color:#bbb;
+    background: #922222;
+}
+
+#main{
+    position: relative;
+    width:100%;
+    height:calc(100% - 100px);
+}
+#main .musicList{
+    position: absolute;
+    left:0;
+    width:249px;
+    height:100%;
+    float:left;
+    background: rgba(20,22,24,0.6);
+    border-right: 1px solid rgba(35,40,45,0.8);
+}
+.musicList .handle{
+    position: absolute;
+    top:0px;
+    right:-20px;
+    height:80px;
+    width:20px;
+    text-align: center;
+    color:rgba(146,34,34,0.8);
+    line-height: 20px;
+    font-size: 16px;
+    writing-mode:vertical-lr;
+    -ms-writing-mode:tb-rl;
+    background: rgba(159,159,159,0.8);
+    -webkit-box-shadow: 0 -1px 1px black inset;
+}
+.musicList .handle:hover{
+    color:rgba(159,159,159,0.8);
+    background: rgba(146,34,34,0.8);
+}
+#main .musicList .list{
+    width:100%;
+    height:calc(100% - 60px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.list li{
+    width:100%;
+    height:28px;
+    list-style: none;
+    color:#ccc;
+    line-height: 28px;
+    text-decoration: none;
+    padding-left:10px ;
+}
+.list span{
+    color:rgba(204, 204, 204, 0.5);
+    margin-right: 5px;
+    font-size: 11px;
+}
+
+.list li:nth-child(odd){
+    background:rgba(56, 58, 62, 0.45) ;
+}
+.list li:nth-child(even){
+    background:rgba(42, 44, 48, 0.45) ;
+}
+.list li:hover{
+    background:rgba(70, 72, 77, 0.6) ;
+    color:#eee;
+}
+.list ul .selected{
+    background: rgba(90, 96, 100, 0.8);
+    color:#fff;
+}
+.list ul .onplay{
+    background: rgba(150, 40, 40, 0.8);
+    color:#fff;
+}
+
+#main .musicList .current{
+    width:100%;
+    height:59px;
+    border-top:1px solid rgba(35,40,45,0.8);
+}
+#main .musicList .current .pic{
+    width:59px;
+    height:100%;
+    box-shadow:1px 0 5px black;
+    background-image: url(../images/icebear.jpg);
+    float:left;
+    display: block;
+}
+#main .musicList .current .detail{
+    width:182px;
+    height:100%;
+    float:right;
+    padding-top: 15px;
+    padding-left: 8px;
+}
+#main .musicList .current .detail p{
+    color:#ccc;
+    text-decoration: none;
+    font-size: 14px;
+}
+#main .effect{
+    width:100%;
+    height:100%;
+    background: #141618;
+    float:left;
+}
+
+#footer{
+    width:100%;
+    height:49px;
+    background: #303035;
+    border-top: 1px solid #354045;
+}
+.controls{
+    width:150px;
+    height:100%;
+    padding-top: 7px;
+    margin-left: 30px;
+    //background: #6699ff;
+    float:left;
+}
+.controls a{
+    height:100%;
+    float:left;
+    margin-right:18px;
+    overflow: hidden;
+}
+.prevBtn{
+    width:28px;
+    height:28px;
+    background-position:0 -130px ;
+    margin-top: 5px;
+}
+.prevBtn:hover{
+    background-position:-30px -130px ;
+}
+.playBtn{
+    width:36px;
+    height:36px;
+    margin-top: 0;
+    background-position: 0 -204px;
+}
+.palyBtn:hover{
+    background-position: -40px -204px;
+}
+.playBtn.playing{
+    background-position: 0 -165px;
+}
+.playBtn.playing:hover{
+    background-position: -40px -165px;
+}
+.nextBtn{
+    width:28px;
+    height:28px;
+    background-position:-80px -130px ;
+    margin-top: 5px;
+    margin-right:8px;
+}
+.nextBtn:hover{
+    background-position:-110px -130px ;
+}
+
+#footer .timeline{
+    width:calc(100% - 330px);
+    height:100%;
+    //background: #9966ff;
+    float:left;
+}
+#footer .timeline p{
+    line-height: 50px;
+    color:#999;
+    width:50px;
+    text-align: center;
+    float:left;
+    text-shadow: 0 1px 0 #121212;
+}
+
+#footer .timeline input[type="range"] {
+    width:calc(100% - 100px);
+    float:left;
+    -webkit-box-shadow: 0 1px 0 0px #424242, 0 1px 0 #060607 inset, 0px 2px 10px 0px black inset,
+            1px 0px 2px rgba(0, 0, 0, 0.4) inset, 0 0px 1px rgba(0, 0, 0, 0.6) inset;
+    margin-top: 22px;
+    background-color: #272728;
+    border-radius: 15px;
+    -webkit-appearance: none;
+    height:8px;
+}
+input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    cursor: default;
+    top: -5px;
+    height: 20px;
+    width: 20px;
+    background: none repeat scroll 0 0 #777;
+    border-radius: 15px;
+    -webkit-box-shadow: 0 -1px 1px black inset;
+}
+input[type="range"]::-ms-track{
+}
+input[type="range"]::-webkit-media-slider-thumb{
+    background: darkred;
+}
+input[type="range"]::-ms-thumb{
+    -webkit-appearance: none;
+    cursor: default;
+    border-radius: 4px;
+    top: -5px;
+    height: 8px;
+    width: 12px;
+    background: none repeat scroll 0 0 #777;
+}
+input[type="range"]::-webkit-slider-thumb:before {
+    position: relative;
+    left:0;
+    top:0;
+   width:500px;
+    height:500px;
+    background: red;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+    height: 22px;
+    width: 22px;
+    -webkit-box-shadow: 0 -2px 2px black inset;
+    background: none repeat scroll 0 0 #7f7f7f;
+}
+input[type="range"]:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+#footer .social{
+    width:145px;
+    height:100%;
+//background: #ccc;
+    padding-left: 5px;
+    float:left;
+    padding-top: 13px;
+    position: relative;
+}
+#footer .social .vol{
+    position: absolute;
+    top:-114px;
+    left:9px;
+    width:32px;
+    height:113px;
+
+}
+#footer .social .vol .volBack{
+    position: absolute;
+    width:100%;
+    height:100%;
+    background:#303035;
+    border:1px solid #354045;
+    border-bottom: 0;
+}
+
+#footer .social .vol .volGroove{
+    padding: 4px 0;
+    top:7px;
+    position: absolute;
+    left:14px;
+    width:6px;
+    height:93px;
+    background: rgba(6,7,9,0.6);
+    -webkit-box-shadow: 0 1px 0 0px #424242, 0 1px 0 #060607 inset, 0px 1px 3px 0px black inset,
+    1px 0px 1px rgba(0, 0, 0, 0.4) inset, 0 0px 1px rgba(0, 0, 0, 0.6) inset;
+    border-radius: 10px;
+}
+#footer .social .vol .currVol{
+    position: absolute;
+    bottom:0px;
+    width: 6px;
+    left:0px;
+    background: #922222;
+    overflow: hidden;
+}
+#footer .social .vol .volBtn{
+    position: absolute;
+    cursor: default;
+    left:-6px;
+    height: 18px;
+    width: 18px;
+    background: none repeat scroll 0 0 #666;
+    border-radius: 15px;
+    -webkit-box-shadow: 0 -1px 1px black inset;
+}
+#footer .social .vol .volBtn:hover{
+    height: 20px;
+    width: 20px;
+    -webkit-box-shadow: 0 -2px 2px black inset;
+    background: none repeat scroll 0 0 #7f7f7f;
+}
+#footer .social .item{
+    margin-left: 5px;
+}
+.volume{
+    width: 25px;
+    height:25px;
+    background-position: -2px -248px;
+    float:left;
+}
+.volume:hover{
+    background-position: -31px -248px;
+}
+.volume.mute{
+    background-position:-104px -69px;
+}
+.volume.mute:hover{
+    background-position:-126px -69px;
+}
+#footer .social .loop{
+     width: 25px;
+     height:25px;
+     float:left;
+ }
+#footer .social .single{
+    background-position: -66px -344px;
+}
+#footer .social .single:hover{
+    background-position: -93px -344px;
+}
+#footer .social .listing{
+    background-position: -3px -344px;
+}
+#footer .social .listing:hover{
+    background-position: -33px -344px;
+}
+#footer .social .random{
+    background-position: -66px -248px;
+}
+#footer .social .random:hover{
+    background-position: -93px -248px;
+}
+
+#footer .social .local{
+    width: 25px;
+    height:25px;
+    background-position: -88px -163px;
+    float:left;
+}
+#footer .social .local:hover{
+    background-position: -88px -189px;
+}
+#footer .social .lyric{
+    width: 25px;
+    height:25px;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    color:#999;
+    float:left;
+    text-decoration: none;
+    text-align: center;
+}
+#footer .social .lyric:hover{
+    color:#ccc;
+}
+.lyricBoard{
+    color:rgba(255,255,255,0.8);
+    background: rgba(20,22,24,0.6);
+    border:1px solid rgba(35,40,45,0.8);
+    position: relative;
+    width:250px;
+    height:100%;
+    text-align: center;
+    overflow-y: auto;
+    padding: 10px;
+    float:right;
+}
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+    width: 8px;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+    height:16px;
+    border-radius: 4px;
+    background-color: rgba(255,255,255,0.2);
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: rgba(255,255,255,0.5);
+}
+.lyricSlider{
+}
+.lyricSlider p{
+    margin-bottom: 16px;
+    line-height:16px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+}
+.lyricSlider .playingLine{
+    color:#FFF;
+}
+.lyricControl{
+    position: absolute;
+    float:left;
+    height:150px;
+    width:15px;
+}
+.lyricControl div{
+    position: relative;
+    height:50px;
+    width:100%;
+    position: relative;
+    height:60px;
+    width:100%;
+    color:white;
+    text-align: center;
+    color:rgba(146,34,34,0.8);
+    line-height: 15px;
+    font-size: 14px;
+    writing-mode:vertical-lr;
+    -ms-writing-mode:tb-rl;
+    background: rgba(159,159,159,0.8);
+    -webkit-box-shadow: 0 -1px 1px black inset;
+}
+.fixBtn{
+
+
+}
+.lyr{
+    position:absolute;
+    width:285px;
+    height:40%;
+    min-height:160px;
+    max-height: 500px;
+    top:60px;
+    right:20px;
+}
+.noLyricTitle{
+    position: relative;
+    top:58px;
+    font-size: 14px;
+}
+.noLyricUpload{
+    position: relative;
+    top:49px;
+    text-decoration: underline;
+    color:red;
+}
