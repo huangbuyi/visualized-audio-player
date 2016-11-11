@@ -1,5 +1,7 @@
 /bower_compoents/
 /node_modules/
+/.tmp/
+/dist/audio/
 
 # Windows image file caches
 Thumbs.db
